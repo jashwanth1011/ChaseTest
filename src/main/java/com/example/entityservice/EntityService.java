@@ -6,12 +6,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+//import java.util.Map;
 
 public class EntityService {
 
-    private Map<Integer, Entity> entityCollection = new HashMap<>();
+    private ConcurrentHashMap<Integer, Entity> entityCollection = new ConcurrentHashMap<>();
 
     public void add(Entity e1) {
         entityCollection.put(e1.getId(), e1);
