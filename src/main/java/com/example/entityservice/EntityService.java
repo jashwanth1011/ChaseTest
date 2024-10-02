@@ -18,7 +18,10 @@ public class EntityService {
     }
 
     public void remove(Entity e1) {
-        entityCollection.remove(e1.getId());
+        if(entityCollection.containsKey(e1.getId())){
+            entityCollection.remove(e1.getId());
+        }
+
     }
 
     public void removeAll() {
@@ -26,7 +29,10 @@ public class EntityService {
     }
 
     public Entity get(Entity e1) {
-        return entityCollection.get(e1.getId());
+        if(entityCollection.containsKey(e1.getId())){
+            return entityCollection.get(e1.getId());
+        }
+        return null;
     }
 
     public Collection<Entity> getAll() {
